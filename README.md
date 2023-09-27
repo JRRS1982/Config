@@ -10,9 +10,9 @@ Test what you are about to change with the `make publish-dry-run`
 2. Deploy a new version of the repo with the appropriate `make publish` command
 
 ```sh
-make publish patch # use this if its backwards compatible and a bug fix
-make publish minor # use if adds new feature, but is backward compatible
-make publish major # use this the change is not backward compatible
+make publish kind=patch # use this if its backwards compatible and a bug fix
+make publish kind=minor # use if adds new feature, but is backward compatible
+make publish kind=major # use this the change is not backward compatible
 ```
 
 ### Eslint
