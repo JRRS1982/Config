@@ -1,6 +1,6 @@
 {
   "name": "@jrrs1982/config",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A collection of config files that get used across applications",
   "main": "index.js",
   "scripts": {
