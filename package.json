@@ -1,0 +1,25 @@
+{
+  "name": "@jrrs1982/config",
+  "version": "0.0.1",
+  "description": "A collection of config files that get used across applications",
+  "main": "index.js",
+  "scripts": {
+    "npm-dry-run": "npm pack --dry-run",
+    "publish": "npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JRRS1982/Config.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JRRS1982/Config/issues"
+  },
+  "homepage": "https://github.com/JRRS1982/Config#readme",
+  "dependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "npm-packlist": "^8.0.0"
+  }
+}
