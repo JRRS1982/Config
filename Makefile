@@ -1,7 +1,7 @@
 .PHONY: publish
 publish:
 	npm version $(kind)
-	npm publish
+	npm publish --access public
 	git push && git push --tags
 
 .PHONY: publish-dry-run
