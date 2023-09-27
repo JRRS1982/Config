@@ -5,4 +5,4 @@ publish:
 
 .PHONY: publish-dry-run
 publish-dry-run:
-  npm run npm-dry-run
+	npm run npm-dry-run
