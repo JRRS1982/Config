@@ -36,3 +36,21 @@ Use eslint, like normal in your package.json scripts
 "lint": "eslint ./src/**/*.ts", // list issues that need fixing
 "lint:fix": "npm run lint -- --fix" // fix the issues
 ```
+
+To ensure you work in a BDD / TDD manner, and keep your code clean in your application, you can use lint-staged (with husky), to run tests and lint your code prior to commit.
+
+```json
+{
+  "dependencies": { ... },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && tsc --noEmit && npm test"
+    }
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "eslint --fix"
+    ]
+  }
+}
+```
