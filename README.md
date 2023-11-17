@@ -1,8 +1,16 @@
 # Config
 
-A collection of common config files.
+A collection of config files which can be imported into your project from the npm repository `@jrrs1982/config`
 
-## Publish a new version of this to NPM
+Importing a config file from here and using it in your application:
+
+- Reduces duplication (of config files between applications)
+- Assists you in applying a consistent set of rules between applications (where possible)
+- Assists you in applying best practice in your application (if the these files are kept up to date)
+
+---
+
+## How to publish a new version of this to NPM
 
 Test what you are about to change with the `make publish-dry-run`
 
@@ -15,29 +23,34 @@ make publish kind=minor # use if adds new feature, but is backward compatible
 make publish kind=major # use this the change is not backward compatible
 ```
 
-### Eslint
+---
+
+## Eslint
 
 Install this package in your repository
 
 - `npm install @jrrs1982/config`
+or
+- `npm install -D @jrrs1982/config` if you only need dev dependency files
 
-Require and spread this config into your eslintrc.js file;
+Require and spread into your `eslintrc.js` file;
 
 ```js
 // .eslintrc.js
 module.exports = {
-  ...require("@jrrs1982/config/eslintrc")
+  ...require("@jrrs1982/config/javascript/eslintrc")
+  // overwrite as required
 };
 ```
 
-Use eslint, like normal in your package.json scripts
+Use eslint, like normal in your `package.json` scripts
 
 ```js
 "lint": "eslint ./src/**/*.ts", // list issues that need fixing
 "lint:fix": "npm run lint -- --fix" // fix the issues
 ```
 
-To ensure you work in a BDD / TDD manner, and keep your code clean in your application, you can use lint-staged (with husky), to run tests and lint your code prior to commit.
+To ensure you keep your code clean, you can use lint-staged (with husky), to run tests and lint your code prior to commit.
 
 ```json
 {
@@ -53,4 +66,17 @@ To ensure you work in a BDD / TDD manner, and keep your code clean in your appli
     ]
   }
 }
+```
+
+You may also want/need to install these packages
+
+```sh
+eslint-config-airbnb
+eslint-config-prettier
+eslint-plugin-prettier
+eslint-plugin-import
+eslint-plugin-jsx-a11y
+eslint-plugin-react
+eslint-plugin-react-hooks
+eslint-plugin-testing-library
 ```
