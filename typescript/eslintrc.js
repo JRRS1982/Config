@@ -1,48 +1,64 @@
+/**
+ * nb. make sure to install the required packages:
+ * npm install --save-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin
+ */
 module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    node: true,
+  },
   extends: [
-    "airbnb-typescript/base",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "eslint:recommended",
+    "airbnb",
+    "plugin:@next/next/recommended",
+    "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/recommended",
-    "plugin:import/typescript",
   ],
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
-  settings: {
-    "import/resolver": {
-      node: {
-        extensions: [".ts"],
-      },
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
     },
   },
+  plugins: ["react", "@typescript-eslint"],
   rules: {
-    "import/extensions": ["error", "never"],
-    "no-void": ["error", { allowAsStatement: true }],
-    "@typescript-eslint/require-await": "off",
+    // Add more rules as needed
   },
   overrides: [
     {
-      files: ["*index.ts"],
-      rules: {
-        "import/prefer-default-export": "off",
+      files: ["**/*.ts?(x)"],
+      parser: "@typescript-eslint/parser",
+      parserOptions: {
+        tsconfigRootDir: __dirname,
+        project: ["./tsconfig.json"], // Update the path to your tsconfig.json
       },
-    },
-    {
-      files: ["*.test.ts"],
+      extends: [
+        "eslint:recommended",
+        "airbnb",
+        "plugin:@next/next/recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "plugin:import/recommended",
+        "plugin:@typescript-eslint/recommended", // Add TypeScript-specific rules
+      ],
       rules: {
-        "@typescript-eslint/no-unsafe-assignment": "off",
-        "@typescript-eslint/no-unsafe-member-access": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-empty-function": "off",
-        "@typescript-eslint/require-await": "off",
-        "func-names": "off",
+        // Add TypeScript-specific rules if needed
       },
     },
   ],
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: "module",
-    project: "./tsconfig.json",
+  settings: {
+    react: {
+      version: "detect",
+    },
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        moduleDirectory: ["node_modules", "src/"],
+      },
+    },
   },
 };
